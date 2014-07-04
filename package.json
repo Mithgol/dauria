@@ -1,0 +1,13 @@
+{
+"name": "dauria",
+"main": "dauria.js",
+"version": "0.0.1",
+"description": "Node.js module for Data URI applications. It performs conversions between Node.js Buffers and RFC2397-compliant Data URIs.",
+"keywords": ["data uri", "data url", "data uris", "data urls", "rfc2397", "rfc 2397"],
+"author": { "name": "Mithgol the Webmaster" },
+"license": "MIT",
+"repository": {
+   "type": "git",
+   "url": "https://github.com/Mithgol/dauria.git"
+}
+}
