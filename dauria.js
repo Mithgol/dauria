@@ -1,0 +1,1 @@
+console.log('Initial piece of the Dauria module.');
