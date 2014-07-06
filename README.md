@@ -42,4 +42,4 @@ After that you may run `npm test` (in the directory of Dauria).
 
 MIT license (see the `LICENSE` file), with the following exception:
 
-* The file `test/red-dot-5px.png` is taken from Wikipedia where it has been [released into the public domain.](http://en.wikipedia.org/wiki/File%3aRed-dot-5px.png)
+* The file `test/red-dot-5px.png` is taken from Wikipedia where it has been [released into the public domain](http://en.wikipedia.org/wiki/File%3aRed-dot-5px.png) by [Johan Elisson.](http://en.wikipedia.org/wiki/User%3aJohan_Elisson)
