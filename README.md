@@ -14,6 +14,16 @@ The npm package does not contain the tests, they're published on GitHub only.
 
 You may visit https://github.com/Mithgol/dauria#readme occasionally to read the latest `README` because the package's version is not planned to grow after changes when they happen in `README` only. (And `npm publish --force` is [forbidden](http://blog.npmjs.org/post/77758351673/no-more-npm-publish-f) nowadays.)
 
+## Using Dauria
+
+When you `require()` the installed module, you get an object that has the following method:
+
+### getBase64DataURI(sourceBuffer, MIME)
+
+Returns a string containing the `data:...` URI that represent the given source Buffer in the base64-encoded form.
+
+An optional second parameter (`MIME`) suggests the MIME type of the given Buffer. If the parameter is not given, `'application/octet-stream'` is used.
+
 ## Testing Dauria
 
 The tests are not included in the npm package of the module (to keep it small). Use the version from GitHub.
@@ -28,4 +38,6 @@ After that you may run `npm test` (in the directory of Dauria).
 
 ## License
 
-MIT license (see the `LICENSE` file).
+MIT license (see the `LICENSE` file), with the following exception:
+
+* The file `test/red-dot-5px.png` is taken from Wikipedia where it has been [released into the public domain.](http://en.wikipedia.org/wiki/File%3aRed-dot-5px.png)
