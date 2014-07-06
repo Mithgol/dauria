@@ -40,6 +40,8 @@ After that you may run `npm test` (in the directory of Dauria).
 
 ## License
 
-MIT license (see the `LICENSE` file), with the following exception:
+MIT license (see the `LICENSE` file), with the following exceptions:
 
 * The file `test/red-dot-5px.png` is taken from Wikipedia where it has been [released into the public domain](http://en.wikipedia.org/wiki/File%3aRed-dot-5px.png) by [Johan Elisson.](http://en.wikipedia.org/wiki/User%3aJohan_Elisson)
+
+* The file `test/larry.gif` is decoded from [RFC2397](http://tools.ietf.org/html/rfc2397) where it was given as an example. (RFC2397's Full Copyright Statement permits publishing and distribution of derivative works that assist in its implementation.)
