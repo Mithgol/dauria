@@ -9,5 +9,9 @@
 "repository": {
    "type": "git",
    "url": "https://github.com/Mithgol/dauria.git"
+},
+"scripts": {
+   "pretest": "jshint dauria.js test/",
+   "test": "mocha --reporter spec --timeout 60s"
 }
 }
