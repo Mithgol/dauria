@@ -26,6 +26,8 @@ An optional second parameter (`MIME`) suggests the MIME type of the given B
 
 ## Testing Dauria
 
+[![(build testing status)](https://travis-ci.org/Mithgol/dauria.svg?branch=master)](https://travis-ci.org/Mithgol/dauria)
+
 The tests are not included in the npm package of the module (to keep it small). Use the version from GitHub.
 
 It is necessary to install [Mocha](http://visionmedia.github.io/mocha/) and [JSHint](http://jshint.com/) for testing.
