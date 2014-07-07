@@ -24,6 +24,10 @@ Returns a string containing the `data:...` URI that represent the given sour
 
 An optional second parameter (`MIME`) suggests the MIME type of the given Buffer. If the parameter is not given, `'application/octet-stream'` is used.
 
+**Example:**
+
+![(screenshot)](https://cloud.githubusercontent.com/assets/1088720/3493753/6eb879ea-05bb-11e4-8eb8-f1ac24657969.gif)
+
 ### parseDataURI(dataURI)
 
 Parses the given Data URI and returns an object with the following properties:
@@ -39,6 +43,10 @@ Parses the given Data URI and returns an object with the following properti
 * `text` — a JavaScript string containing the text decoded from `buffer` using `charset`. However, if `MIME` does not start with `'text/'`, then `text` becomes `null`. It also becomes `null` if the [iconv-lite](https://github.com/ashtuchkin/iconv-lite) module does not know the encountered `charset`.
 
 If the given `dataURI` is not in fact a Data URI (does not start with `'data:'` or does not contain a comma), an error is thrown.
+
+**Example:**
+
+![(screenshot)](https://cloud.githubusercontent.com/assets/1088720/3493769/9eae25c8-05bb-11e4-8984-6b21619f6200.gif)
 
 ## Testing Dauria
 
