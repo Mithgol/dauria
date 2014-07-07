@@ -1,6 +1,6 @@
 This Node.js module for <b>Da</b>ta <b>URI a</b>pplications is called **Dauria** (after a part of [Transbaikal](http://en.wikipedia.org/wiki/Transbaikal)).
 
-It performs conversions between Node.js Buffers and [RFC2397-compliant](http://tools.ietf.org/html/rfc2397) Data URIs.
+It performs conversions between Node.js [Buffers](http://nodejs.org/docs/latest/api/buffer.html) and [RFC2397-compliant](http://tools.ietf.org/html/rfc2397) Data URIs, or vice versa.
 
 ## Installing Dauria
 
@@ -16,13 +16,29 @@ You may visit https://github.com/Mithgol/dauria#readme occasionally to read the
 
 ## Using Dauria
 
-When you `require()` the installed module, you get an object that has the following method:
+When you `require()` the installed module, you get an object that has the following methods:
 
 ### getBase64DataURI(sourceBuffer, MIME)
 
 Returns a string containing the `data:...` URI that represent the given source Buffer in the base64-encoded form.
 
 An optional second parameter (`MIME`) suggests the MIME type of the given Buffer. If the parameter is not given, `'application/octet-stream'` is used.
+
+### parseDataURI(dataURI)
+
+Parses the given Data URI and returns an object with the following properties:
+
+* `MIME` — MIME content type in the form `type/subtype` as explained in [RFC2045 Section 5.2](http://tools.ietf.org/html/rfc2045#section-5.2). If not given in the URI, `MIME` becomes `'text/plain'` by default (as recommended by [RFC2397](http://tools.ietf.org/html/rfc2397) in section 2).
+
+* `mediaType` — MIME content type with the semicolon-separated list of parameters (if any) in the form `parameter=value` (some values may appear urlencoded, and Dauria does not decode them). If not given in the URI, `mediaType` becomes `'text/plain;charset=US-ASCII'` by default (as recommended by [RFC2397](http://tools.ietf.org/html/rfc2397) in section 2).
+
+* `buffer` — Node.js [Buffer](http://nodejs.org/docs/latest/api/buffer.html) containing the data decoded from the given Data URI. Hexadecimal URL encoding (such as `'%20'` for a whitespace) and base64 encoding are both supported (the latter must be indicated by the string `';base64'` before the first comma in the given Data URI).
+
+* `charset` — the value of the first `'charset=...'` parameter encountered in `mediaType`. If `mediaType` does not contain any charset parameters, `charset` becomes `'US-ASCII'`. However, if `MIME` does not start with `'text/'`, then `charset` becomes `null` regardless of any parameters.
+
+* `text` — a JavaScript string containing the text decoded from `buffer` using `charset`. However, if `MIME` does not start with `'text/'`, then `text` becomes `null`. It also becomes `null` if the [iconv-lite](https://github.com/ashtuchkin/iconv-lite) module does not know the encountered `charset`.
+
+If the given `dataURI` is not in fact a Data URI (does not start with `'data:'` or does not contain a comma), an error is thrown.
 
 ## Testing Dauria
 
