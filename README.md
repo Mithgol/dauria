@@ -50,7 +50,7 @@ If the given `dataURI` is not in fact a Data URI (does not start with `'da
 
 ## Testing Dauria
 
-[![(build testing status)](https://travis-ci.org/Mithgol/dauria.svg?branch=master)](https://travis-ci.org/Mithgol/dauria)
+[![(build testing status)](https://img.shields.io/travis/Mithgol/dauria/master.svg?style=plastic)](https://travis-ci.org/Mithgol/dauria)
 
 The tests are not included in the npm package of the module (to keep it small). Use the version from GitHub.
 
