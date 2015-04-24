@@ -6,7 +6,7 @@ It is tested against Node.js v0.8.x, Node.js v0.10.x, Node.js v0.12.x and t
 
 ## Installing Dauria
 
-[![(npm package version)](https://nodei.co/npm/dauria.png?downloads=true)](https://npmjs.org/package/dauria) [![(a histogram of downloads)](https://nodei.co/npm-dl/dauria.png?months=3)](https://npmjs.org/package/dauria)
+[![(npm package version)](https://nodei.co/npm/dauria.png?downloads=true)](https://npmjs.org/package/dauria) [![(a histogram of downloads)](https://nodei.co/npm-dl/dauria.png?months=3&height=2)](https://npmjs.org/package/dauria)
 
 * Latest packaged version: `npm install dauria`
 
