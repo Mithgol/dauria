@@ -2,7 +2,7 @@ This Node.js module for <b>Da</b>ta <b>URI a</b>pplications is called **Dauria*
 
 It performs conversions between Node.js [Buffers](http://nodejs.org/docs/latest/api/buffer.html) and [RFC2397-compliant](http://tools.ietf.org/html/rfc2397) Data URIs, or vice versa.
 
-It is tested against Node.js v0.8.x, Node.js v0.10.x, Node.js v0.12.x, Node.js v4.0.x and the latest stable version of io.js.
+It is tested against Node.js v0.10.x, Node.js v0.12.x, Node.js v4.0.x, Node.js v4.1.x and the latest stable version of io.js.
 
 ## Installing Dauria
 
