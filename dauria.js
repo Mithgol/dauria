@@ -1,4 +1,4 @@
-require('iconv-lite').extendNodeEncodings();
+var iconv = require('iconv-lite');
 
 var Dauria = function(){
    if (!(this instanceof Dauria)) return new Dauria();
@@ -75,8 +75,8 @@ Dauria.prototype.parseDataURI = function(dataURI){
    });
    if( semicolonSplit.length === 0 ) semicolonSplit = ['US-ASCII'];
    var decodedText;
-   if( Buffer.isEncoding(semicolonSplit[0]) ){
-      decodedText = decodedBuffer.toString( semicolonSplit[0] );
+   if( iconv.encodingExists(semicolonSplit[0]) ){
+      decodedText = iconv.decode(decodedBuffer, semicolonSplit[0]);
    } else {
       decodedText = null;
    }
