@@ -56,7 +56,7 @@ If the given `dataURI` is not in fact a Data URI (does not start with `'da
 
 The tests are not included in the npm package of the module (to keep it small). Use the version from GitHub.
 
-It is necessary to install [Mocha](http://visionmedia.github.io/mocha/) and [JSHint](http://jshint.com/) for testing.
+It is necessary to install [Mocha](https://mochajs.org/) and [JSHint](http://jshint.com/) for testing.
 
 * You may install Mocha globally (`npm install mocha -g`) or locally (`npm install mocha` in the directory of Dauria).
 
