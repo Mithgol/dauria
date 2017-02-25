@@ -9,9 +9,9 @@ var urldecodeBuffer = function(urlencoded){
       /(%[0-9A-Fa-f]{2})/
    ).map(function(fragment, idx){      
       if( idx % 2 === 0 ){ // simple string fragment's index: 0, 2, 4...
-         return Buffer(fragment, 'binary');
+         return new Buffer(fragment, 'binary');
       } else { // regex-captured fragment's index: 1, 3, 5...
-         return Buffer(fragment.replace(/%/g, ''), 'hex');
+         return new Buffer(fragment.replace(/%/g, ''), 'hex');
       }
    });
    return Buffer.concat(arrBuffers);
@@ -44,7 +44,7 @@ Dauria.prototype.parseDataURI = function(dataURI){
    }
    var decodedBuffer;
    if( base64 ){
-      decodedBuffer = Buffer(encodedData, 'base64');
+      decodedBuffer = new Buffer(encodedData, 'base64');
    } else { // not base64, i.e. urlencoded
       decodedBuffer = urldecodeBuffer(encodedData);
    }
