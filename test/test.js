@@ -4,8 +4,8 @@ var fs = require('fs');
 var path = require('path');
 var Dauria = require('../');
 
-describe('base64 encoder', function(){
-   it('encodes a red dot (an example from Wikipedia)', function(){
+describe('base64 encoder', () => {
+   it('encodes a red dot (an example from Wikipedia)', () => {
       assert.strictEqual(
          Dauria.getBase64DataURI(
             fs.readFileSync( path.join(__dirname, 'red-dot-5px.png') ),
@@ -16,7 +16,7 @@ describe('base64 encoder', function(){
          'rkJggg=='
       );
    });
-   it('encodes Larry (an example from RFC2397)', function(){
+   it('encodes Larry (an example from RFC2397)', () => {
       assert.strictEqual(
          Dauria.getBase64DataURI(
             fs.readFileSync( path.join(__dirname, 'larry.gif') ),
@@ -32,8 +32,8 @@ describe('base64 encoder', function(){
    });
 });
 
-describe('data URI decoder', function(){
-   it('decodes a red dot (an example from Wikipedia)', function(){
+describe('data URI decoder', () => {
+   it('decodes a red dot (an example from Wikipedia)', () => {
       assert.deepEqual(
          Dauria.parseDataURI(
             'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACN' +
@@ -51,7 +51,7 @@ describe('data URI decoder', function(){
          }
       );
    });
-   it('decodes HTML (an example from Wikipedia)', function(){
+   it('decodes HTML (an example from Wikipedia)', () => {
       assert.deepEqual(
          Dauria.parseDataURI(
             'data:text/html;charset=utf-8,' + 
@@ -79,7 +79,7 @@ describe('data URI decoder', function(){
          }
       );
    });
-   it('decodes Larry (an example from RFC2397)', function(){
+   it('decodes Larry (an example from RFC2397)', () => {
       assert.deepEqual(
          Dauria.parseDataURI(
             'data:image/gif;base64,R0lGODdhMAAwAPAAAAAAAP///ywAAAAAMAAwAAAC' +
@@ -101,7 +101,7 @@ describe('data URI decoder', function(){
          }
       );
    });
-   it('decodes "A brief note" (an example from RFC2397)', function(){
+   it('decodes "A brief note" (an example from RFC2397)', () => {
       assert.deepEqual(
          Dauria.parseDataURI('data:,A%20brief%20note'),
          {
@@ -113,7 +113,7 @@ describe('data URI decoder', function(){
          }
       );
    });
-   it('decodes "слово" (a modified example from RFC2397)', function(){
+   it('decodes "слово" (a modified example from RFC2397)', () => {
       assert.deepEqual(
          Dauria.parseDataURI('data:text/plain;charset=cp866,%e1%AB%ae%A2%ae'),
          {

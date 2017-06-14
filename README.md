@@ -1,8 +1,12 @@
 This Node.js module for <b>Da</b>ta <b>URI a</b>pplications is called **Dauria** (after a part of [Transbaikal](http://en.wikipedia.org/wiki/Transbaikal)).
 
-It performs conversions between Node.js [Buffers](http://nodejs.org/docs/latest/api/buffer.html) and [RFC2397-compliant](http://tools.ietf.org/html/rfc2397) Data URIs, or vice versa.
+Dauria performs conversions between Node.js [Buffers](http://nodejs.org/docs/latest/api/buffer.html) and [RFC2397-compliant](http://tools.ietf.org/html/rfc2397) Data URIs, or vice versa.
 
-It is tested against Node.js v0.10.x, Node.js v0.12.x, Node.js v4, Node.js v5, Node.js v6 and the latest stable version of Node.js.
+Dauria is written in JavaScript and requires [Node.js](http://nodejs.org/) to run.
+   * Starting from v2.0.0, Dauria requires Node.js version 5.10.0 or newer because it is rewritten in ECMAScript 2015 (ES6) and also uses the [`Buffer.from`](https://nodejs.org/docs/latest/api/buffer.html#buffer_class_method_buffer_from_string_encoding) method.
+   * You may run older versions of Dauria (that precede v2.0.0) with older Node.js versions (0.10.x or 0.12.x). However, those older versions of Node.js are themselves not maintained by their developers after 2016-12-31.
+
+Dauria is tested against Node.js v5, Node.js v6, Node.js v7 and the latest stable version of Node.js.
 
 ## Installing Dauria
 

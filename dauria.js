@@ -4,18 +4,18 @@ var Dauria = function(){
    if (!(this instanceof Dauria)) return new Dauria();
 };
 
-var urldecodeBuffer = function(urlencoded){
-   var arrBuffers = urlencoded.split(
+var urldecodeBuffer = urlencoded => Buffer.concat(
+   // an Array of Buffers is generated from various parts of `urlencoded`:
+   urlencoded.split(
       /(%[0-9A-Fa-f]{2})/
-   ).map(function(fragment, idx){      
+   ).map((fragment, idx) => {
       if( idx % 2 === 0 ){ // simple string fragment's index: 0, 2, 4...
-         return new Buffer(fragment, 'binary');
+         return Buffer.from(fragment, 'binary');
       } else { // regex-captured fragment's index: 1, 3, 5...
-         return new Buffer(fragment.replace(/%/g, ''), 'hex');
+         return Buffer.from(fragment.replace(/%/g, ''), 'hex');
       }
-   });
-   return Buffer.concat(arrBuffers);
-};
+   })
+);
 
 Dauria.prototype.getBase64DataURI = function(sourceBuffer, MIME){
    if( typeof MIME === 'undefined' ) MIME = 'application/octet-stream';
@@ -24,9 +24,10 @@ Dauria.prototype.getBase64DataURI = function(sourceBuffer, MIME){
 };
 
 Dauria.prototype.parseDataURI = function(dataURI){
-   if( dataURI.indexOf('data:') !== 0 ){
-      throw new Error(this.errors.MISSING_PREFIX);
-   }
+   if(!( dataURI.startsWith('data:') )) throw new Error(
+      this.errors.MISSING_PREFIX
+   );
+
    var commaSplit = dataURI.slice('data:'.length).split(',');
    if( commaSplit.length < 2 ) throw new Error(this.errors.MISSING_COMMA);
 
@@ -44,7 +45,7 @@ Dauria.prototype.parseDataURI = function(dataURI){
    }
    var decodedBuffer;
    if( base64 ){
-      decodedBuffer = new Buffer(encodedData, 'base64');
+      decodedBuffer = Buffer.from(encodedData, 'base64');
    } else { // not base64, i.e. urlencoded
       decodedBuffer = urldecodeBuffer(encodedData);
    }
@@ -53,7 +54,7 @@ Dauria.prototype.parseDataURI = function(dataURI){
    }
    var MIME = semicolonSplit[0];
    var mediaType = semicolonSplit.join(';');
-   if( MIME.toLowerCase().indexOf('text/') !== 0 ){ // not a text
+   if(!( MIME.toLowerCase().startsWith('text/') )){ // not a text
       return {
          'MIME': MIME,
          'mediaType': mediaType,
@@ -64,15 +65,13 @@ Dauria.prototype.parseDataURI = function(dataURI){
    }
    // we have a text; determine its encoding:
    semicolonSplit.shift();
-   semicolonSplit = semicolonSplit.map(function(urlparam){
-      if( urlparam.toLowerCase().indexOf('charset=') !== 0 ){
+   semicolonSplit = semicolonSplit.map(urlparam => {
+      if(!( urlparam.toLowerCase().startsWith('charset=') )){
          return null; // not a charset parameter, drop it
       }
       var charset = urlparam.slice('charset='.length);
       return charset;
-   }).filter(function(charset){
-      return charset !== null;
-   });
+   }).filter(charset => charset !== null);
    if( semicolonSplit.length === 0 ) semicolonSplit = ['US-ASCII'];
    var decodedText;
    if( iconv.encodingExists(semicolonSplit[0]) ){
